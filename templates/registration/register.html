@@ -1,0 +1,89 @@
+<!-- templates/registration_app/company_registration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        head{
+        }
+body {
+    background-color: rgba(255, 255, 255, 0.94);
+}
+
+.container {
+    margin-top: 50px;
+
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    max-width: 50%;
+    flood-opacity: revert;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    float: inherit;
+    font-size: 25px;
+}
+</style>
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Registration</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <form action="{% url 'company_registration' %}" method="post">
+                        {% csrf_token %}
+                        <h2 class="mb-4">Company Registration</h2>
+                        <label for="company_name">Company Name:</label>
+                        <input type="text" id="company_name" name="company_name" class="form-control" required>
+
+                        <label for="contact_person" class="mt-3"> Company Contact Person:</label>
+                        <input type="text" id="contact_person" name="contact_person" class="form-control" required>
+
+                        <label for="email" class="mt-3">company Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+
+                        <label for="phone_number" class="mt-3"> Company Phone Number:</label>
+                        <input type="tel" id="phone_number" name="phone_number" class="form-control" required>
+
+                         <label for="company ID" class="mt-3">Company ID:</label>
+                        <input type="tel" id="phone_number" name="phone_number" class="form-control" required>
+
+
+                        <label for="description" class="mt-3">Company Description:</label>
+                        <textarea id="description" name="description" rows="4" class="form-control" required></textarea>
+
+                        <label for="password" class="mt-3">password</label>
+                        <input type="password" id="password" class="form-control" required>
+
+                        <button type="submit" class="btn btn-success mt-4">Register</button>
+                    </form>
+                    <br>
+                    <br>
+                     <div class="container" style="margin-top: -20px; margin-bottom: 10px;">
+                        <span class="text-lead lead" style="font-size: 16px;">Already have an account?</span> <span><a href="{% url 'company_login' %}">Login</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect
 from django.views import View
 import json
@@ -16,7 +13,7 @@ from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeEr
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
 
-from .utilis import token_generator
+from .utils import token_generator
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 import threading
 
@@ -97,7 +94,7 @@ class RegistrationView(View):
                         activate_url = 'http://' + domain + link
 
                         email_subject = 'Activate your account'
-                        email_body = 'Hi ' + user.username + ' Please use this link to activate your account\n' + activate_url
+                        email_body = 'Hi ' + user.username + ' account activated\n' + activate_url
                         email = EmailMessage(
                             email_subject,
                             email_body,
@@ -107,8 +104,8 @@ class RegistrationView(View):
                         EmailThreading(email).start()
                         user.is_active = False
                         user.save()
-                        messages.success(request, 'Account successfully created check activation link on email')
-                        return render(request, 'authentication/register.html')
+                        messages.success(request, 'Account successfully created  you can now login in')
+                        return render(request, 'index.html')
 
                 else:
                     messages.error(request, "Passwords does not match")
@@ -124,7 +121,7 @@ class VerificationView(View):
 
         if user.is_active:
             messages.success(request, 'Account already activated')
-            return redirect('login')
+            return redirect('index')
         user.is_active = True
         user.save()
         messages.success(request, 'Account activated successfully')
@@ -147,14 +144,14 @@ class LoginView(View):
                 if user.is_active:
                     auth.login(request, user)
                     messages.success(request, 'Welcome ' + username + ' you are logged in successfully')
-                    return redirect('index.html')
+                    return redirect('index')
                 else:
                     messages.error(request, 'Account not activated please check your email')
             else:
                 messages.error(request, 'Username or password is invalid!')
         else:
             messages.error(request, 'Please enter username and password!')
-        return render(request, 'authentication/login.html')
+        return render(request, 'index.html')
 
 
 class LogoutView(View):
@@ -254,4 +251,3 @@ class CompletePasswordReset(View):
         except Exception as identifier:
             messages.info(request, "Oops! something went wrong")
             return render(request, 'authentication/set-new-password.html', data)
-

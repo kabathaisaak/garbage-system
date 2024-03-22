@@ -8,14 +8,14 @@
             <div class="col-md-6">
                 <div class="card float-center m-4">
                     <div class="card-title mt-4">
-                        <h4>Account Login</h4>
+                        <h4>User Login</h4>
                     </div>
                     <div class="card-body">
                         <form action="{% url 'login' %}" method="post">
 
                             {% csrf_token %}
 
-{#                            {% include 'partials/_messages.html' %}#}
+                            {% include 'partials/_messages.html' %}
 
                             <div class="form-group">
                                 <input type="text"
@@ -43,7 +43,7 @@
                     <div class="container" style="margin-top: -20px; margin-bottom: 10px;">
                         <span class="text-lead lead" style="font-size: 16px;">Dont have an account? </span> <span><a href="{% url 'register' %}">Register</a></span>
                         <br>
-                        <span class="text-lead lead" style="font-size: 16px;">Forgot password? </span> <span><a href="{% url 'request-password' %}">Reset</a></span>
+{#                        <span class="text-lead lead" style="font-size: 16px;">Forgot password? </span> <span><a href="{% url 'request-password' %}">Reset</a></span>#}
                     </div>
                 </div>
             </div>

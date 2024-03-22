@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marking Areas on Google Map</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -0.5365074852952132, lng: 37.2723227859048},
+            zoom: 10
+        });
+
+        // Mark Area 1
+        var marker1 = new google.maps.Marker({
+            position: {lat: -0.66806 , lng: 37.20875},
+            map: map,
+            title: 'Area 1'
+        });
+
+        // Mark Area 2
+        var marker2 = new google.maps.Marker({
+            position: {lat: -0.682500, lng: 37.356944},
+            map: map,
+            title: 'Area 2'
+        });
+
+        // Mark Area 3
+        var marker3 = new google.maps.Marker({
+            position: {lat: -0.5735224999999999, lng: 37.3252767},
+            map: map,
+            title: 'Area 3'
+        });
+    }
+</script>
+   <div class="col-md-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126865.55239053331!2d37.2723227859048!3d-0.5365074852952132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827d52e39ceefbf%3A0x1b58ed3f9519baa7!2sKirinyaga%20County!5e0!3m2!1sen!2ske!4v1709500324281!5m2!1sen!2ske"
+                      width="2000" height="450"style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+
+</body>
+</html>

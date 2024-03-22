@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 
 from garbage.models import Member
 
-
-# Create your views here.
+def mark_area(request):
+    return render(request, 'mark_area.html')
 
 
 def register(request):
@@ -30,3 +30,8 @@ def about(request):
 def services(request):
     return render(request,'services.html')
 
+def details(request):
+    return render(request,'details.html')
+
+def login_interface(request):
+    return render(request,'login_interface.html')

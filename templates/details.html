@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>GARBAGE COLLECTION</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <!-- Favicons -->
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/wasteicon.png' %}" rel="icon">
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/wasteicon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'garbage/../djangogarbagecolllectionsystem/assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Logis
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <style type="text/css">
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+
+    .form-signin .form-control {
+      position: relative;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+      margin-bottom: 10px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="text"] {
+      margin-bottom: 10px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      margin-bottom: -1px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    .h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1> </h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active">Home</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up">Your GARBAGE COLLECTION SYSTEM ASSISTANCE</h2>
+          <p data-aos="fade-up" data-aos-delay="100">serves as the diligent caretaker of a program's memory, tirelessly ensuring that every byte is used efficiently and purposefully</p>
+
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+          </div>
+        </div>
+
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+          <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/hero-img.svg' %}" class="img-fluid mb-3 mb-lg-0" alt="">
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services ">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-cart-flatbed"></i></div>
+            <div>
+              <h4 class="title">garbage bin</h4>
+              <p class="description">equiped with smart sensors to notify the company about its location</p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck"></i></div>
+            <div>
+              <h4 class="title">notification process</h4>
+              <p class="description">When the bin reaches a predefined level, sensors detect the fill status and trigger a notification. This notification is then transmitted to relevant parties, such as waste management authorities or collection services, facilitating timely and efficient waste collection.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck-ramp-box"></i></div>
+            <div>
+              <h4 class="title">garbage collection</h4>
+              <p class="description">The waste collection process of a smart garbage bin involves automated sensors detecting the fill level and triggering notifications when nearing capacity</p>
+            </div>
+          </div><!-- End Service Item -->
+        </div>
+      </div>
+    </section><!-- End Featured Services Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+      <div class="container" data-aos="fade-up">
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="service" class="services pt-0 ">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <span> Services</span>
+          <h2>Our Services</h2>
+
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/garbage-collection1.jpeg' %}" alt="" class="img-fluid">
+              </div>
+              <h2>Garbage Collection Process</h2>
+    <ul>
+        <li><strong>1. Municipal Collection:</strong>
+            <ul>
+                <li>Local municipalities organize garbage collection services for residents and businesses.</li>
+                <li>Collection routes are planned to cover specific areas on scheduled days.</li>
+            </ul>
+        </li>
+        <li><strong>2. Residential Collection:</strong>
+            <ul>
+                <li>Residents place garbage bins or bags at designated pickup points, typically at the curb.</li>
+                <li>Waste collectors use specialized vehicles to pick up residential garbage.</li>
+            </ul>
+        </li>
+        <li><strong>3. Commercial Collection:</strong>
+            <ul>
+                <li>Businesses may have scheduled garbage collection services or use communal bins.</li>
+                <li>Commercial waste management may involve larger containers or dumpsters.</li>
+            </ul>
+        </li>
+        <li><strong>4. Specialized Collections:</strong>
+            <ul>
+                <li>Hazardous waste, electronic waste, and bulky items may have specific collection procedures.</li>
+                <li>Specialized vehicles and trained personnel handle these types of waste.</li>
+            </ul>
+        </li>
+        <li><strong>5. Separation and Recycling:</strong>
+            <ul>
+                <li>Efforts are made to separate recyclable materials during the collection process.</li>
+                <li>Recyclables are sent to processing facilities for further sorting and recycling.</li>
+            </ul>
+        </li>
+        <li><strong>6. Transfer Stations:</strong>
+            <ul>
+                <li>Some areas have transfer stations where collected garbage is consolidated before transport to disposal sites.</li>
+                <li>Transfer stations help optimize transportation efficiency.</li>
+            </ul>
+        </li>
+        <li><strong>7. Landfill Disposal:</strong>
+            <ul>
+                <li>Non-recyclable and residual waste is transported to landfills for disposal.</li>
+                <li>Modern landfills implement environmental controls to minimize environmental impact.</li>
+            </ul>
+        </li>
+        <li><strong>8. Incineration:</strong>
+            <ul>
+                <li>In some regions, waste may undergo incineration as an alternative to landfill disposal.</li>
+                <li>Incineration can generate energy but requires proper emission controls.</li>
+            </ul>
+        </li>
+        <li><strong>9. Regulatory Compliance:</strong>
+            <ul>
+                <li>Garbage collection operations must comply with local, state, and federal regulations.</li>
+                <li>Proper documentation and permits are essential for legal operation.</li>
+            </ul>
+        </li>
+    </ul>
+                  </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/bin 45.jpeg' %}" alt="" class="img-fluid">
+              </div>
+               <h2>Bin Installation for Waste Management</h2>
+    <ul>
+        <li><strong>Site Assessment:</strong>
+            <ul>
+                <li>Conduct a thorough assessment of the area to determine optimal locations for waste bins.</li>
+                <li>Consider factors such as foot traffic, accessibility, and waste generation patterns.</li>
+            </ul>
+        </li>
+        <li><strong>Types of Bins:</strong>
+            <ul>
+                <li><strong>General Waste Bins:</strong>
+                    <ul>
+                        <li>Designed for non-recyclable waste, these bins are commonly used for general waste disposal.</li>
+                        <li>Available in various sizes to accommodate different usage levels.</li>
+                    </ul>
+                </li>
+                <li><strong>Recycling Bins:</strong>
+                    <ul>
+                        <li>Specifically designated for recyclable materials such as paper, plastic, glass, and metal.</li>
+                        <li>Color-coded bins or clear labeling help users segregate recyclables effectively.</li>
+                    </ul>
+                </li>
+                <li><strong>Organic Waste Bins:</strong>
+                    <ul>
+                        <li>Intended for the disposal of organic or biodegradable waste like food scraps and yard waste.</li>
+                        <li>Airtight lids and compostable liners may be used to control odors.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Bin Placement:</strong>
+            <ul>
+                <li>Strategically place bins in high-traffic areas and near points of waste generation.</li>
+                <li>Ensure proper signage indicating the type of waste each bin is intended for.</li>
+            </ul>
+        </li>
+        <li><strong>Accessibility:</strong>
+            <ul>
+                <li>Install bins at accessible heights for users of all ages and abilities.</li>
+                <li>Consider features such as pedal-operated lids for hands-free use.</li>
+            </ul>
+        </li>
+        <li><strong>Maintenance:</strong>
+            <ul>
+                <li>Establish a regular cleaning and maintenance schedule for the bins and their surroundings.</li>
+                <li>Monitor fill levels and schedule timely pickups to prevent overflow.</li>
+            </ul>
+        </li>
+        <li><strong>Community Engagement:</strong>
+            <ul>
+                <li>Engage the community in waste reduction initiatives and proper use of bins.</li>
+                <li>Provide educational materials on waste segregation and the importance of responsible disposal.</li>
+            </ul>
+        </li>
+    </ul>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/garbagetransportation1.jpg' %}" alt="" class="img-fluid">
+              </div>
+           <h2>Transportation of Waste Products</h2>
+    <ul>
+        <li><strong>Collection and Loading:</strong>
+            <ul>
+                <li>Waste collection vehicles gather waste from various sources, such as households, businesses, and public spaces.</li>
+                <li>Trained personnel load the collected waste onto specialized vehicles, considering safety and efficiency.</li>
+            </ul>
+        </li>
+        <li><strong>Transportation Methods:</strong>
+            <ul>
+                <li><strong>Land Transportation:</strong>
+                    <ul>
+                        <li>Trucks and lorries are commonly used for transporting solid waste over short to medium distances.</li>
+                        <li>Routes are planned to minimize environmental impact and optimize fuel efficiency.</li>
+                    </ul>
+                </li>
+                <li><strong>Water Transportation:</strong>
+                    <ul>
+                        <li>In some regions, waste is transported via waterways, using barges or other water vessels.</li>
+                        <li>Water transportation can be suitable for areas with access to navigable water bodies.</li>
+                    </ul>
+                </li>
+                <li><strong>Rail Transportation:</strong>
+                    <ul>
+                        <li>Rail transport may be utilized for long-distance movement of waste in certain regions.</li>
+                        <li>Specialized containers and railcars are designed for waste transport by rail.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Regulatory Compliance:</strong>
+            <ul>
+                <li>Transportation of waste must comply with local, state, and national regulations.</li>
+                <li>Proper documentation, including manifests and permits, is essential for legal transport.</li>
+            </ul>
+        </li>
+        <li><strong>Safety Measures:</strong>
+            <ul>
+                <li>Transportation personnel should follow safety protocols to prevent accidents and spills.</li>
+                <li>Secure packaging and containment of hazardous waste are critical for safety during transport.</li>
+            </ul>
+        </li>
+        <li><strong>Transfer Stations:</strong>
+            <ul>
+                <li>Intermediate transfer stations may be used to consolidate waste before long-distance transport.</li>
+                <li>Transfer stations facilitate the efficient transfer of waste between local and long-distance transportation.</li>
+            </ul>
+        </li>
+    </ul>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/wastemanagement1.jpeg' %}" alt="" class="img-fluid">
+              </div>
+              <h3>waste management</h3>
+              <h2>Waste Management Overview</h2>
+    <ul>
+        <li><strong>Collection:</strong>
+            <ul>
+                <li>Waste collection involves gathering waste from various sources, including households, businesses, and public spaces.</li>
+                <li>Collection methods may include curbside pickup, drop-off points, and scheduled routes.</li>
+            </ul>
+        </li>
+        <li><strong>Transportation:</strong>
+            <ul>
+                <li>Collected waste is transported using various methods, such as trucks, water vessels, and rail, depending on the region and waste type.</li>
+                <li>Transportation follows safety measures and regulatory compliance to minimize environmental impact.</li>
+            </ul>
+        </li>
+        <li><strong>Transfer and Sorting:</strong>
+            <ul>
+                <li>Intermediate transfer stations may be used to consolidate and transfer waste for more efficient transport.</li>
+                <li>Sorting facilities, like Material Recovery Facilities (MRFs), separate recyclable materials from non-recyclables.</li>
+            </ul>
+        </li>
+        <li><strong>Treatment and Processing:</strong>
+            <ul>
+                <li>Waste undergoes treatment processes such as composting, incineration, or anaerobic digestion to reduce environmental impact.</li>
+                <li>Advanced technologies may be employed for specialized waste streams, including hazardous waste.</li>
+            </ul>
+        </li>
+        <li><strong>Recycling:</strong>
+            <ul>
+                <li>Recyclable materials are sent to recycling facilities where they are processed and reused to create new products.</li>
+                <li>Recycling helps conserve resources, reduce energy consumption, and minimize landfill usage.</li>
+            </ul>
+        </li>
+        <li><strong>Disposal:</strong>
+            <ul>
+                <li>Non-recyclable and residual waste is disposed of in landfills or through waste-to-energy processes.</li>
+                <li>Modern landfills incorporate environmental controls to minimize leachate and gas emissions.</li>
+            </ul>
+        </li>
+        <li><strong>Regulatory Compliance:</strong>
+            <ul>
+                <li>Waste management operations must adhere to local, state, and national regulations governing waste disposal and environmental protection.</li>
+                <li>Permits and licenses are obtained to ensure legal and compliant waste management practices.</li>
+            </ul>
+        </li>
+        <li><strong>Public Awareness and Education:</strong>
+            <ul>
+                <li>Community engagement programs and educational initiatives inform the public about responsible waste disposal and recycling.</li>
+                <li>Public participation is encouraged to enhance the effectiveness of waste management practices.</li>
+            </ul>
+        </li>
+    </ul>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-img">
+                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/recycling1.jpeg' %}" alt="" class="img-fluid">
+              </div>
+                <h2>Waste Recycling Overview</h2>
+    <ul>
+        <li><strong>Collection of Recyclables:</strong>
+            <ul>
+                <li>Recyclable materials, such as paper, plastic, glass, and metal, are collected separately from general waste.</li>
+                <li>Collection methods may include curbside recycling bins, drop-off points, or specialized recycling programs.</li>
+            </ul>
+        </li>
+        <li><strong>Sorting and Processing:</strong>
+            <ul>
+                <li>Recyclables are taken to Material Recovery Facilities (MRFs) where they undergo sorting and processing.</li>
+                <li>MRFs use various techniques, including conveyor belts and machinery, to separate different types of materials.</li>
+            </ul>
+        </li>
+        <li><strong>Types of Recyclable Materials:</strong>
+            <ul>
+                <li><strong>Paper Recycling:</strong> Includes newspapers, magazines, cardboard, and office paper.</li>
+                <li><strong>Plastic Recycling:</strong> Commonly recycled plastics include PET (polyethylene terephthalate) and HDPE (high-density polyethylene).</li>
+                <li><strong>Glass Recycling:</strong> Jars and bottles are often recyclable.</li>
+                <li><strong>Metal Recycling:</strong> Aluminum and steel cans are widely recycled.</li>
+            </ul>
+        </li>
+        <li><strong>Recycling Technologies:</strong>
+            <ul>
+                <li><strong>Mechanical Recycling:</strong> Involves physical processes like shredding, melting, and reprocessing.</li>
+                <li><strong>Chemical Recycling:</strong> Uses chemical processes to break down materials into their basic components for reuse.</li>
+                <li><strong>Biological Recycling:</strong> Involves composting organic waste to produce nutrient-rich compost.</li>
+            </ul>
+        </li>
+        <li><strong>Closed-Loop Recycling:</strong>
+            <ul>
+                <li>The concept of a circular economy aims to minimize waste by continuously reusing and recycling materials.</li>
+                <li>Products are designed with recycling in mind, creating a closed loop of material use.</li>
+            </ul>
+        </li>
+        <li><strong>Benefits of Recycling:</strong>
+            <ul>
+                <li>Resource Conservation: Reduces the need for extracting raw materials from the environment.</li>
+                <li>Energy Savings: Recycling often requires less energy compared to producing items from raw materials.</li>
+                <li>Waste Reduction: Reduces the volume of waste sent to landfills.</li>
+            </ul>
+        </li>
+        <li><strong>Challenges:</strong>
+            <ul>
+                <li>Contamination: Proper separation of recyclables is essential to avoid contamination with non-recyclable items.</li>
+                <li>Economic Viability: The economics of recycling depend on factors like market demand for recycled materials.</li>
+            </ul>
+        </li>
+        <!-- ... Additional points ... -->
+    </ul>
+            </div>
+            </div>
+                  </section>
+            <section id="notification">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="400">
+                     <h2>Garbage Collection Areas Overview</h2>
+    <ul>
+        <li><strong>Municipal Collection Zones:</strong>
+            <ul>
+                <li>Divided collection routes ensure efficient garbage pickup from households, businesses, and public spaces.</li>
+                <li>Collection schedules are established for different zones to ensure regular waste removal.</li>
+            </ul>
+        </li>
+        <li><strong>Commercial and Industrial Areas:</strong>
+            <ul>
+                <li>Specialized waste management services may be required for commercial and industrial zones with larger waste volumes.</li>
+                <li>Designated spots or recycling centers may be available for businesses to dispose of specific types of waste.</li>
+            </ul>
+        </li>
+        <li><strong>Residential Areas:</strong>
+            <ul>
+                <li>Curbside collection is common in residential areas, where residents place waste bins at specified locations for pickup.</li>
+                <li>Encouraging the separation of waste into categories like general waste, recyclables, and green waste is common.</li>
+            </ul>
+        </li>
+        <li><strong>Recycling and Sorting Facilities:</strong>
+            <ul>
+                <li>Centralized facilities process and sort waste materials, separating recyclables from non-recyclables.</li>
+                <li>Drop-off locations may be available for residents or businesses to dispose of specific types of waste.</li>
+            </ul>
+        </li>
+        <li><strong>Smart Waste Management:</strong>
+            <ul>
+                <li>Technology integration, such as sensors in waste bins, helps optimize collection routes based on real-time data.</li>
+                <li>Data analysis identifies areas with higher waste generation, allowing for resource optimization.</li>
+            </ul>
+        </li>
+        <li><strong>Environmental Considerations:</strong>
+            <ul>
+                <li>Garbage collection areas in environmentally conscious cities focus on preserving green spaces and implementing sustainable waste management practices.</li>
+                <li>Community education initiatives promote reducing, reusing, and recycling.</li>
+            </ul>
+        </li>
+        <li><strong>Private Waste Management Services:</strong>
+            <ul>
+                <li>Private companies may offer custom waste management solutions for specific areas, tailoring services to business and industrial needs.</li>
+            </ul>
+        </li>
+        <li><strong>Legal and Regulatory Compliance:</strong>
+            <ul>
+                <li>Garbage collection areas must comply with local, state, and federal regulations governing waste disposal and environmental protection.</li>
+                <li>Obtaining the necessary permits is crucial for legal operation.</li>
+            </ul>
+        </li>
+        <li><strong>Public Health and Safety:</strong>
+            <ul>
+                <li>Sanitation standards are maintained in garbage collection areas to ensure public health and safety.</li>
+                <li>Proper waste treatment facilities handle hazardous waste to prevent harm to the environment and the community.</li>
+            </ul>
+        </li>
+        <!-- ... Additional points ... -->
+    </ul>
+
+                    <p>
+                      <strong>Upcoming Collection Areas:</strong>
+                    </p>
+                    <ul>
+                      <li><strong>Date:</strong>three days after last collection</li>
+                      <li><strong>Time:</strong> 8-5pm</li>
+                      <li><strong>Location:</strong> kirinyaga county</li>
+                    </ul>
+
+                    <p>
+                      Please ensure your garbage bins are placed in the designated collection areas before the specified time to facilitate smooth waste pickup.
+                    </p>
+
+                    <p>
+                      For real-time notifications, consider subscribing to our notification service or mobile app. Stay connected and contribute to a cleaner environment!
+                    </p>
+                  </div>
+                     </section>
+                  <div class="col-md-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126865.55239053331!2d37.2723227859048!3d-0.5365074852952132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827d52e39ceefbf%3A0x1b58ed3f9519baa7!2sKirinyaga%20County!5e0!3m2!1sen!2ske!4v1709500324281!5m2!1sen!2ske"
+                      width="2000" height="450"style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div><!-- End Card Item -->
+<!-- End Services Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+      <div class="container" data-aos="zoom-out">
+      </div>
+    </section><!-- End Call To Action Section -->
+
+    <!-- ======= Features Section ======= -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="index.html" class="logo d-flex align-items-center">dS
+            <span>garbage</span>
+          </a>
+          <p>our social media pages</p>
+          <div class="social-links d-flex mt-4">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container mt-4">
+        <div class="copyright">
+          &copy; Copyright <strong><span>garbage</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/ -->
+          Designed by <a href=#>garbage</a>
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

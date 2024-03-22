@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+
   <title>GARBAGE COLLECTION</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -45,27 +46,30 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1> BIN BUDDIES GARBAGE COLLECTION</h1>
+        <h1 class="text-danger"> GARBAGE COLLECTION SYSTEM OF KIRINYAGA COUNTY </h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'services' %}">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" class="active text-danger">Home</a></li>
+          <li><a href="{% url 'about' %}" class="text-danger">About</a></li>
+          <li><a href="{% url 'services' %}" class="text-danger">Services</a></li>
+          <li><a href="{% url 'login_interface' %}" class="text-danger">login</a></li>
+
 
         </ul>
       </nav><!-- .navbar -->
-
+      <div class="d-flex align-items-center">
+        {% include 'partials/_sidebar.html' %}
+      </div>
     </div>
   </header><!-- End Header -->
   <!-- End Header -->
@@ -75,49 +79,17 @@
     <div class="container">
       <div class="row gy-4 d-flex justify-content-between">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h2 data-aos="fade-up">Your GARBAGE COLLECTION SYSTEM ASSISTANCE</h2>
           <p data-aos="fade-up" data-aos-delay="100">serves as the diligent caretaker of a program's memory, tirelessly ensuring that every byte is used efficiently and purposefully</p>
 
-          <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-            <input type="text" class="form-control" placeholder="ZIP code or CitY">
-            <button type="submit" class="btn btn-primary">enter street address</button>
-          </form>
-
           <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+<!-- End Stats Item -->
 
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Clients</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Support</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Workers</p>
-              </div>
-            </div><!-- End Stats Item -->
+         <!-- End Stats Item -->
 
           </div>
         </div>
 
         <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/hero-img.svg' %}" class="img-fluid mb-3 mb-lg-0" alt="">
         </div>
 
       </div>
@@ -137,7 +109,6 @@
             <div>
               <h4 class="title">garbage bin</h4>
               <p class="description">equiped with smart sensors to notify the company about its location</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <!-- End Service Item -->
@@ -147,7 +118,6 @@
             <div>
               <h4 class="title">notification process</h4>
               <p class="description">When the bin reaches a predefined level, sensors detect the fill status and trigger a notification. This notification is then transmitted to relevant parties, such as waste management authorities or collection services, facilitating timely and efficient waste collection.</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -156,8 +126,8 @@
             <div>
               <h4 class="title">garbage collection</h4>
               <p class="description">The waste collection process of a smart garbage bin involves automated sensors detecting the fill level and triggering notifications when nearing capacity</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
+
           </div><!-- End Service Item -->
 
         </div>
@@ -175,7 +145,7 @@
             <p>
              cutting-edge technological solution aimed at revolutionizing waste management practices. This digital platform integrates seamlessly into the urban infrastructure, leveraging real-time data and sensor technologies embedded in smart garbage bins across the city.
             </p>
-               <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+               <a href="{% url 'about' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             <ul>
             </ul>
           </div>
@@ -202,17 +172,17 @@
                 <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/garbage-collection1.jpeg' %}" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Garbage collection</a></h3>
-                     <a href= "{% url 'services' %}" class="readmore stretched-link"><span class="text-danger">Learn More</span><i class="bi bi-arrow-right"></i></a>
+                     <a href= "{% url 'details' %}" class="readmore stretched-link"><span class="text-danger">Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Card Item -->
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
               <div class="card-img">
-                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/bin installation1.jpeg' %}" alt="" class="img-fluid">
+                <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/bin 45.jpeg' %}" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Bin installation</a></h3>
-                 <a href="{% url 'services' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+                 <a href="{% url 'details' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Card Item -->
 
@@ -222,7 +192,7 @@
                 <img src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/img/garbagetransportation1.jpg' %}" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Transportation services of waste products</a></h3>
-           <a href="{% url 'services' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+           <a href="{% url 'details' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Card Item -->
 
@@ -233,8 +203,13 @@
               </div>
               <h3><a href="service-details.html" class="stretched-link">waste management</a></h3>
             </div>
-               <a href="{% url 'services' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-          </div><!-- End Card Item -->
+               <a href="{% url 'details' %}" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+
+                  <div class="col-md-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126865.55239053331!2d37.2723227859048!3d-0.5365074852952132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827d52e39ceefbf%3A0x1b58ed3f9519baa7!2sKirinyaga%20County!5e0!3m2!1sen!2ske!4v1709500324281!5m2!1sen!2ske"
+                      width="2000" height="450"style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
     </section><!-- End Services Section -->
 
 
@@ -310,5 +285,4 @@
   <script src="{% static 'garbage/../djangogarbagecolllectionsystem/assets/js/main.js' %}"></script>
 
 </body>
-
 </html>

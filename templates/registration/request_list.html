@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garbage Requests</title>
+</head>
+<body>
+    <h1>Garbage Requests</h1>
+    <ul>
+        {% for request in garbage_requests %}
+            <li>{{ request.location }} - {% if request.is_collected %}Collected{% else %}Not Collected{% endif %}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
